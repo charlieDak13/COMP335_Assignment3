@@ -15,10 +15,10 @@ function handleIntersection(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // Play the video
-      const iframe = videoContainer.querySelector('iframe');
-      iframe.src = iframe.src + '&autoplay=1';
-      // Stop observing since we only want to play it once
-      observer.unobserve(videoContainer);
+      player.playVideo();
+    } else {
+      // Pause the video
+      player.pauseVideo();
     }
   });
 }
