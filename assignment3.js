@@ -4,6 +4,9 @@ tag.src = "https://www.youtube.com/iframe_api"; //sets the src attribute of the 
 var firstScriptTag = document.getElementsByTagName('script')[0]; //finds the first script tag in the HTML
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); //inserts the new script tag into DOM before the first script tag in the HTML
 
+// sets up varible player as a YT player with the dimensions and id of our chosen video
+// 'onReady' is an event handler that calls the onPlayerReady function when the player is ready
+// to accept commands
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
