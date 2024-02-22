@@ -34,7 +34,8 @@ function onPlayerReady(event) {
     threshold: 1.0 //checks to see if the video is 100% visible
   };
 
-  // Callback function to handle intersection
+  // function to handle intersection
+  // if they are intersecting play the video, otherwise pause it.
   function handleIntersection(entries, observer) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
