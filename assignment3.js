@@ -2,7 +2,7 @@
 var tag = document.createElement('script'); //creates a script tag element in HTML
 tag.src = "https://www.youtube.com/iframe_api"; //sets the src attribute of the script tag to the URL of the YouTube IFrame Player API
 var firstScriptTag = document.getElementsByTagName('script')[0]; //finds the first script tag in the HTML
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); //inserts the new script tag into DOM before the first script tag in the HTML
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); //inserts the new script tag into DOM before the FirstScriptTag in the HTML
 
 // sets up varible player as a YT player with the dimensions and id of our chosen video
 // 'onReady' is an event handler that calls the onPlayerReady function when the player is ready
@@ -19,15 +19,19 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+
+// function is used when the youtube player that is set up by the onYouTubeIframeAPIReady function is ready
+// gets player object. 
+//Function also creates an options object that is used to set up our IntersectionObserver
 function onPlayerReady(event) {
   // Get the player
   const video = document.getElementById('player');
 
   // Options for the IntersectionObserver
   const options = {
-    root: null,
+    root: null, //uses the viewport of the browser as the root to check the visaibility of the video since it is set to null
     rootMargin: '0px',
-    threshold: 1.0 // Trigger when 100% of the video is visible
+    threshold: 1.0 //checks to see if the video is 100% visible
   };
 
   // Callback function to handle intersection
